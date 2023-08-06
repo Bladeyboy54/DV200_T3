@@ -1,39 +1,23 @@
 import React from 'react';
-import { useState } from "react";
 import {
   MDBNavbar,
   MDBContainer,
   MDBNavbarBrand,
-  MDBNavbarToggler,
   MDBNavbarItem,
   MDBNavbarLink,
-  MDBCollapse,
   MDBBtn,
-  MDBIcon,
   MDBNavbarNav,
   MDBInputGroup
 } from 'mdb-react-ui-kit';
 
 export default function BasicNav() {
- const [showNavNoTogglerSecond, setShowNavNoTogglerSecond] = useState(false);
-
   return (
     <>
-      <MDBNavbar expand='lg' light bgColor='light'>
-        <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
-          <MDBNavbarToggler
-            type='button'
-            data-target='#navbarTogglerDemo02'
-            aria-controls='navbarTogglerDemo02'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-            onClick={() => setShowNavNoTogglerSecond(!showNavNoTogglerSecond)}
-          >
-            <MDBIcon icon='bars' fas />
-          </MDBNavbarToggler>
-          <MDBCollapse navbar show={showNavNoTogglerSecond}>
-            <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
+      <MDBNavbar expand='lg' light bgColor='light' style={{height: '100px'}}>
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
+          <MDBContainer fluid style={{height: '60px'}}>
+            <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+            <MDBNavbarNav className='mb-2 mb-lg-0'>
               <MDBNavbarItem>
                 <MDBNavbarLink active aria-current='page' href='#'>
                   Home
@@ -48,12 +32,14 @@ export default function BasicNav() {
                 </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
-            <MDBInputGroup tag="form" className='d-flex w-auto mb-3'>
-              <input className='form-control' placeholder="Type query" aria-label="Search" type='Search' />
-              <MDBBtn outline>Search</MDBBtn>
-            </MDBInputGroup>
-          </MDBCollapse>
-        </MDBContainer>
+          </MDBContainer>
+          <MDBContainer fluid style={{height: '40px', float: 'right'}}>
+            <MDBInputGroup tag="form" className='d-flex mb-3'>
+                <input className='form-control' placeholder="Type query" aria-label="Search" type='Search' style={{width: '20%'}} />
+                <MDBBtn outline>Search</MDBBtn>
+              </MDBInputGroup>
+          </MDBContainer>
+        </div>
       </MDBNavbar>
     </>
   );
