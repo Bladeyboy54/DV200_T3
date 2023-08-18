@@ -29,7 +29,7 @@ function Landing (){
         >
           <h5>Second slide label</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </MDBCarouselItem>
+        </MDBCarouselItem> 
 
         <MDBCarouselItem
           className='w-100 d-block'

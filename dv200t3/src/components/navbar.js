@@ -11,7 +11,16 @@ export default function BasicNav() {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#">Tiger Technologies</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img
+              alt=""
+              src="/img/logo.svg"
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{' '}
+            React Bootstrap
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
