@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose');
 const { log } = require('console');
-const audioRoute = require('./routes/music')
+const audioRoute = require('./routes/graphics')
 
 require('dotenv/config')
 
@@ -21,7 +21,7 @@ app.use(audioRoute)
 mongoose.connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'GlenSounds' //Collection Name
+    dbName: 'DV200T3-Project' //Collection Name
 }).then(() => {
     console.log("Connected to the DB")
 })
