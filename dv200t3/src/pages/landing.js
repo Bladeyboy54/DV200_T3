@@ -3,6 +3,7 @@ import {
     MDBCarousel,
     MDBCarouselItem,
   } from 'mdb-react-ui-kit';
+// import '../css/landing.css';
 
 function Landing (){
 
@@ -45,7 +46,7 @@ function Landing (){
       <br />
       <div  style={{backgroundColor: "#F5F5F5", width: "90%", marginLeft: "auto", marginRight: "auto", borderRadius: "7px"}}>
         <div class="row" style={{width: "80%", marginLeft: "auto", marginRight: "auto", paddingTop: "50px",  paddingBottom: "50px"}}>
-          <h1>Test</h1>
+          <h1>Nvidia</h1>
           <div class="col-sm-3">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
@@ -111,7 +112,7 @@ function Landing (){
       <br/>
       <div  style={{backgroundColor: "#F5F5F5", width: "90%", marginLeft: "auto", marginRight: "auto", borderRadius: "7px"}}>
         <div class="row" style={{width: "80%", marginLeft: "auto", marginRight: "auto", paddingTop: "50px",  paddingBottom: "50px"}}>
-          <h1>Test</h1>
+          <h1>AMD</h1>
           <div class="col-sm-3">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
