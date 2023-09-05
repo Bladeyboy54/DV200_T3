@@ -1,15 +1,12 @@
-import React, {useState, useEffect} from "react";
-import {
-    MDBCarousel,
-    MDBCarouselItem,
-  } from 'mdb-react-ui-kit';
+import React from "react";
+import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 // import '../css/landing.css';
 
 function Landing (){
 
   return(
     <>
-      <MDBCarousel showIndicators showControls fade>
+      <MDBCarousel showControls >
         <MDBCarouselItem
           className='w-100 d-block'
           itemId={1}
