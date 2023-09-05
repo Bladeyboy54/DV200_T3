@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBInput} from "mdb-react-ui-kit";
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+} from "mdb-react-ui-kit";
 import axios from "axios";
 
 function Admin() {
@@ -189,7 +195,7 @@ function Admin() {
           </MDBBtn>
         )}
       </form>
-      
+
       <br />
 
       <MDBTable striped>
