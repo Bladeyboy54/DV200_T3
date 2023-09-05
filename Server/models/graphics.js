@@ -16,6 +16,10 @@ const GraphicsSchema = mongoose.Schema({
     stock: {
         type: Number,
         required: true
+    },
+    imageUrl: {
+        type: String,
+        required: true
     }
 })
 
