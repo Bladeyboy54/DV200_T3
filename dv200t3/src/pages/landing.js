@@ -1,8 +1,20 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { MDBCarousel, MDBCarouselItem } from "mdb-react-ui-kit";
+import axios from "axios";
 // import '../css/landing.css';
 
 function Landing() {
+
+  const [graphicsData, setGraphicsData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5001/api/graphics")
+      .then((response) => setGraphicsData(response.data))
+      .catch((error) => console.error("Error fetching graphics data:", error));
+  }, []);
+
   return (
     <>
       <MDBCarousel showControls>
@@ -61,7 +73,7 @@ function Landing() {
             paddingBottom: "50px",
           }}
         >
-          <h1>Nvidia</h1>
+          <h1>Newest Products</h1>
           <div class="col-sm-3">
             <div class="card">
               <div
@@ -192,7 +204,7 @@ function Landing() {
             paddingBottom: "50px",
           }}
         >
-          <h1>AMD</h1>
+          <h1>Now on Sale !!</h1>
           <div class="col-sm-3">
             <div class="card">
               <div
