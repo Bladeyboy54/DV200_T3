@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { 
+import {
   MDBCarousel,
   MDBCarouselItem,
   MDBCard,
@@ -14,7 +14,6 @@ import axios from "axios";
 // import '../css/landing.css';
 
 function Landing() {
-
   const [graphicsData, setGraphicsData] = useState([]);
 
   useEffect(() => {
@@ -24,16 +23,30 @@ function Landing() {
       .catch((error) => console.error("Error fetching graphics data:", error));
   }, []);
 
-  function shuffleArray(array) {
+  function shuffleAndUniqueArray(array, numItems) {
     let shuffledArray = [...array];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const x = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[x]] = [shuffledArray[x], shuffledArray[x]];
+      [shuffledArray[i], shuffledArray[x]] = [
+        shuffledArray[x],
+        shuffledArray[i],
+      ];
     }
-    return shuffledArray;
+    return shuffledArray.slice(0, numItems);
   }
 
-  const shuffledGraphicsData = shuffleArray(graphicsData);
+  const shuffledGraphicsData = shuffleAndUniqueArray(graphicsData, 20);
+
+  const newestProductsData = shuffledGraphicsData.slice(0, 10);
+  const onSaleData = shuffledGraphicsData.slice(10, 21);
+
+  function generateDiscount(price) {
+    const discountFactor = 1 + Math.random() * 0.3;
+    const discountedPrice = price * discountFactor;
+    return discountedPrice.toFixed(2);
+  }
+
+  const cardHeight = "600px";
 
   return (
     <>
@@ -95,14 +108,22 @@ function Landing() {
           }}
         >
           <h1>Newest Products</h1>
-          {shuffledGraphicsData.map((graphic, index) => (
+          {newestProductsData.slice(0, 4).map((graphic, index) => (
             <div key={index} className="col-sm-3">
-              <MDBCard>
-                <MDBCardImage src={graphic.imageUrl} alt={graphic.name} />
-                <MDBCardBody>
+              <MDBCard style={{ height: cardHeight }}>
+                <MDBCardImage
+                  src={graphic.imageUrl}
+                  alt={graphic.name}
+                  style={{ objectFit: "cover", margin: "10px" }}
+                />
+                <MDBCardBody
+                  style={{ position: "absolute", bottom: "0", width: "100%" }}
+                >
                   <MDBCardTitle>{graphic.name}</MDBCardTitle>
                   <MDBCardText>{graphic.type}</MDBCardText>
-                  <MDBCardText>R{graphic.price.toFixed(2)}</MDBCardText>
+                  <MDBCardText style={{ marginBottom: "20px" }}>
+                    R{graphic.price.toFixed(2)}
+                  </MDBCardText>
                   <MDBBtn color="primary">Buy Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -132,14 +153,25 @@ function Landing() {
           }}
         >
           <h1>Now on Sale !!</h1>
-          {shuffledGraphicsData.map((graphic, index) => (
+          {onSaleData.slice(0, 4).map((graphic, index) => (
             <div key={index} className="col-sm-3">
-              <MDBCard>
-                <MDBCardImage src={graphic.imageUrl} alt={graphic.name} />
-                <MDBCardBody>
+              <MDBCard style={{ height: cardHeight }}>
+                <MDBCardImage
+                  src={graphic.imageUrl}
+                  alt={graphic.name}
+                  style={{ objectFit: "cover", margin: "10px" }}
+                />
+                <MDBCardBody
+                  style={{ position: "absolute", bottom: "0", width: "100%" }}
+                >
                   <MDBCardTitle>{graphic.name}</MDBCardTitle>
                   <MDBCardText>{graphic.type}</MDBCardText>
-                  <MDBCardText>R{graphic.price.toFixed(2)}</MDBCardText>
+                  <div style={{ textDecoration: "line-through" }}>
+                    Original Price: R{generateDiscount(graphic.price)}
+                  </div>
+                  <MDBCardText style={{ marginBottom: "20px" }}>
+                    R{graphic.price.toFixed(2)}
+                  </MDBCardText>
                   <MDBBtn color="primary">Buy Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
