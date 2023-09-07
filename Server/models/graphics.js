@@ -21,6 +21,14 @@ const GraphicsSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: true
+  },
+  discount: {
+    type: Number,
+    required: true
+  },
 });
 
 module.exports = mongoose.model("Graphics", GraphicsSchema);

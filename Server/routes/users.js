@@ -4,6 +4,65 @@ const userSchema = require("../models/users");
 
 const router = express.Router();
 
+// const jwt = require("jsonwebtoken");
+
+// const bcrypt = require("bcryptjs");
+
+/////////////////////////USER REGISTRATION ROUTE///////////////////////////////////////////////////////
+
+// router.post("/api/register", async (req, res) => {
+//   try {
+//     const { username, email, password } = req.body;
+
+//     // Check if the user already exists
+//     const existingUser = await userSchema.findOne({ email });
+//     if (existingUser) {
+//       return res.status(400).json({ message: "Email already exists" });
+//     }
+
+//     // Hash the password
+//     const salt = await bcrypt.genSalt(10);
+//     const hashedPassword = await bcrypt.hash(password, salt);
+
+//     const newUser = new userSchema({ username, email, password: hashedPassword });
+
+//     const savedUser = await newUser.save();
+//     res.json(savedUser);
+//   } catch (error) {
+//     console.error("Error registering user:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
+// ///////////////////////////USER LOGIN ROUTE//////////////////////////////////////////////////////
+// router.post("/api/users", async (req, res) => {
+//   try {
+//     const { email, password } = req.body;
+
+//     // Find the user by email
+//     const user = await userSchema.findOne({ email });
+
+//     if (!user) {
+//       return res.status(400).json({ message: "User not found" });
+//     }
+
+//     // Check if the provided password is correct
+//     const isPasswordValid = await bcrypt.compare(password, user.password);
+
+//     if (!isPasswordValid) {
+//       return res.status(400).json({ message: "Invalid password" });
+//     }
+
+//     // Generate a JWT token
+//     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+
+//     res.json({ token });
+//   } catch (error) {
+//     console.error("Error logging in:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
 //////////////////////////////////CREATE//////////////////////////////////////////////////////////////////////////////////
 
 router.post("/api/users", async (req, res) => {

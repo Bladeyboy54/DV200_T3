@@ -4,7 +4,9 @@ import Admin from "./pages/admin";
 import Products from "./pages/products";
 import Login from "./pages/login";
 import Cart from "./pages/cart";
+import Checkout from "./pages/checkout";
 import BasicNav from "./components/navbar";
+import SingleProduct from "./pages/singleProduct";
 import { Route, Routes } from "react-router-dom";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
@@ -19,6 +21,8 @@ function App() {
         <Route path="/products" element={ <Products/> } />
         <Route path="/login" element={ <Login/> } />
         <Route path="/cart" element={ <Cart/> } />
+        <Route path="/checkout" element={ <Checkout/> } />
+        <Route path="/product/:id" element={<SingleProduct />} />
       </Routes>
     </div>
   );

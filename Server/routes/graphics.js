@@ -7,9 +7,9 @@ const router = express();
 //////////////////////////////////CREATE//////////////////////////////////////////////////////////////////////////////////
 
 router.post("/api/graphics", async (req, res) => {
-  const { name, type, price, stock, imageUrl } = req.body;
+  const { name, type, price, stock, imageUrl, description, discount } = req.body;
 
-  const card = new GraphicsSchema({ name, type, price, stock, imageUrl });
+  const card = new GraphicsSchema({ name, type, price, stock, imageUrl, description, discount });
 
   try {
     const savedCard = await card.save();

@@ -11,10 +11,12 @@ import {
   MDBRow,
   MDBCol,
 } from "mdb-react-ui-kit";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Products() {
   const [productsData, setProductsData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -48,7 +50,12 @@ function Products() {
                 <MDBCardText style={{ marginBottom: "20px" }}>
                   R{product.price.toFixed(2)}
                 </MDBCardText>
-                <MDBBtn color="primary">Buy Now</MDBBtn>
+                <MDBBtn 
+                  color="primary"
+                  onClick={() => navigate(`/product/${product._id}`)}
+                >
+                  Buy Now
+                </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>

@@ -18,6 +18,8 @@ function Admin() {
     price: "",
     stock: "",
     image: "",
+    description: "",
+    discount: "",
   });
 
   const [isEditing, setIsEditing] = useState(false); // Track edit mode
@@ -32,8 +34,17 @@ function Admin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, type, price, stock, imageUrl } = formData;
-    const requestData = { name, type, price, stock, imageUrl };
+    const { name, type, price, stock, imageUrl, description, discount } =
+      formData;
+    const requestData = {
+      name,
+      type,
+      price,
+      stock,
+      imageUrl,
+      description,
+      discount,
+    };
 
     if (isEditing && editingItemId) {
       // Handle update if in edit mode
@@ -56,6 +67,8 @@ function Admin() {
             price: "",
             stock: "",
             imageUrl: "",
+            description: "",
+            discount: "",
           });
         })
         .catch((error) =>
@@ -73,6 +86,8 @@ function Admin() {
             price: "",
             stock: "",
             imageUrl: "",
+            description: "",
+            discount: "",
           });
         })
         .catch((error) =>
@@ -89,6 +104,8 @@ function Admin() {
       price: item.price,
       stock: item.stock,
       imageUrl: item.imageUrl,
+      description: item.description,
+      discount: item.discount,
     });
     setIsEditing(true);
     setEditingItemId(item._id);
@@ -104,6 +121,8 @@ function Admin() {
       price: "",
       stock: "",
       imageUrl: "",
+      description: "",
+      discount: "",
     });
   };
 
@@ -121,139 +140,180 @@ function Admin() {
 
   return (
     <MDBContainer className="my-5">
-      <form onSubmit={handleSubmit}>
-        <MDBRow className="mb-3">
-          <MDBCol md="3">
-            <MDBInput
-              type="text"
-              label="Name"
-              name="name"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-            />
-          </MDBCol>
-          <MDBCol md="3">
-            <MDBInput
-              type="text"
-              label="Type"
-              name="type"
-              value={formData.type}
-              onChange={(e) =>
-                setFormData({ ...formData, type: e.target.value })
-              }
-            />
-          </MDBCol>
-          <MDBCol md="2">
-            <MDBInput
-              type="number"
-              label="Price"
-              name="price"
-              value={formData.price}
-              onChange={(e) =>
-                setFormData({ ...formData, price: e.target.value })
-              }
-            />
-          </MDBCol>
-          <MDBCol md="2">
-            <MDBInput
-              type="number"
-              label="Stock"
-              name="stock"
-              value={formData.stock}
-              onChange={(e) =>
-                setFormData({ ...formData, stock: e.target.value })
-              }
-            />
-          </MDBCol>
-          <MDBCol md="2">
-            <MDBInput
-              type="text"
-              label="Image URL"
-              name="imageUrl"
-              value={formData.imageUrl}
-              onChange={(e) =>
-                setFormData({ ...formData, imageUrl: e.target.value })
-              }
-            />
-          </MDBCol>
-        </MDBRow>
+      <MDBContainer
+        style={{
+          backgroundColor: "#FFFFFF",
+          padding: "10px",
+          borderRadius: "10px",
+        }}
+      >
+        <form onSubmit={handleSubmit}>
+          <MDBRow className="mb-3">
+            <MDBCol md="3">
+              <MDBInput
+                type="text"
+                label="Name"
+                name="name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+              />
+            </MDBCol>
+            <MDBCol md="3">
+              <MDBInput
+                type="text"
+                label="Type"
+                name="type"
+                value={formData.type}
+                onChange={(e) =>
+                  setFormData({ ...formData, type: e.target.value })
+                }
+              />
+            </MDBCol>
+            <MDBCol md="2">
+              <MDBInput
+                type="number"
+                label="Price"
+                name="price"
+                value={formData.price}
+                onChange={(e) =>
+                  setFormData({ ...formData, price: e.target.value })
+                }
+              />
+            </MDBCol>
+            <MDBCol md="2">
+              <MDBInput
+                type="number"
+                label="Stock"
+                name="stock"
+                value={formData.stock}
+                onChange={(e) =>
+                  setFormData({ ...formData, stock: e.target.value })
+                }
+              />
+            </MDBCol>
+            <MDBCol md="2">
+              <MDBInput
+                type="text"
+                label="Image URL"
+                name="imageUrl"
+                value={formData.imageUrl}
+                onChange={(e) =>
+                  setFormData({ ...formData, imageUrl: e.target.value })
+                }
+              />
+            </MDBCol>
+            <MDBCol md="2" style={{ marginTop: "10px" }}>
+              <MDBInput
+                type="text"
+                label="Description"
+                name="description"
+                value={formData.description}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
+              />
+            </MDBCol>
+            <MDBCol md="2" style={{ marginTop: "10px" }}>
+              <MDBInput
+                type="number"
+                label="Discount"
+                name="discount"
+                value={formData.discount}
+                onChange={(e) =>
+                  setFormData({ ...formData, discount: e.target.value })
+                }
+              />
+            </MDBCol>
+          </MDBRow>
 
-        {isEditing ? (
-          <div className="d-flex">
+          {isEditing ? (
+            <div className="d-flex">
+              <MDBBtn color="primary" type="submit">
+                Save
+              </MDBBtn>
+              <MDBBtn color="secondary" onClick={handleCancelEdit}>
+                Cancel
+              </MDBBtn>
+            </div>
+          ) : (
             <MDBBtn color="primary" type="submit">
-              Save
+              Submit
             </MDBBtn>
-            <MDBBtn color="secondary" onClick={handleCancelEdit}>
-              Cancel
-            </MDBBtn>
-          </div>
-        ) : (
-          <MDBBtn color="primary" type="submit">
-            Submit
-          </MDBBtn>
-        )}
-      </form>
+          )}
+        </form>
+      </MDBContainer>
 
       <br />
-
-      <MDBTable striped>
-        <MDBTableHead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>Stock</th>
-            <th>Image</th>
-            <th>Actions</th>
-          </tr>
-        </MDBTableHead>
-        <MDBTableBody>
-          {graphicsData.map((graphic) => (
-            <tr key={graphic._id}>
-              <td>{graphic.name}</td>
-              <td>{graphic.type}</td>
-              <td>R{graphic.price.toFixed(2)}</td>
-              <td>{graphic.stock}</td>
-              <td>
-                <img
-                  src={graphic.imageUrl}
-                  alt={graphic.name}
-                  style={{ maxWidth: "100px" }}
-                />
-              </td>
-              <td>
-                {isEditing && editingItemId === graphic._id ? (
-                  <>
-                    <MDBBtn color="primary" onClick={() => handleSubmit()}>
-                      Save
-                    </MDBBtn>
-                    <MDBBtn
-                      color="secondary"
-                      onClick={() => handleCancelEdit()}
-                    >
-                      Cancel
-                    </MDBBtn>
-                  </>
-                ) : (
-                  <>
-                    <MDBBtn color="info" onClick={() => handleEdit(graphic)}>
-                      Edit
-                    </MDBBtn>
-                    <MDBBtn
-                      color="danger"
-                      onClick={() => handleDelete(graphic._id)}
-                    >
-                      Delete
-                    </MDBBtn>
-                  </>
-                )}
-              </td>
+      <MDBContainer
+        style={{
+          backgroundColor: "#FFFFFF",
+          padding: "10px",
+          borderRadius: "10px",
+        }}
+      >
+        <MDBTable striped style={{tableLayout: "fixed"}}>
+          <MDBTableHead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Image</th>
+              <th>Description</th>
+              <th>Discount</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </MDBTableBody>
-      </MDBTable>
+          </MDBTableHead>
+          <MDBTableBody>
+            {graphicsData.map((graphic) => (
+              <tr key={graphic._id}>
+                <td>{graphic.name}</td>
+                <td>{graphic.type}</td>
+                <td>R{graphic.price.toFixed(2)}</td>
+                <td>{graphic.stock}</td>
+                <td>
+                  <img
+                    src={graphic.imageUrl}
+                    alt={graphic.name}
+                    style={{ maxWidth: "100px" }}
+                  />
+                </td>
+                <td style={{overflow: "hidden", whiteSpace: "nowrap"}}>{graphic.description}</td>
+                <td>{graphic.discount}</td>
+                <td>
+                  {isEditing && editingItemId === graphic._id ? (
+                    <>
+                      <MDBBtn color="primary" onClick={() => handleSubmit()}>
+                        Save
+                      </MDBBtn>
+                      <MDBBtn
+                        color="secondary"
+                        onClick={() => handleCancelEdit()}
+                      >
+                        Cancel
+                      </MDBBtn>
+                    </>
+                  ) : (
+                    <>
+                      <MDBBtn color="info" onClick={() => handleEdit(graphic)}>
+                        Edit
+                      </MDBBtn>
+                      <MDBBtn
+                        color="danger"
+                        onClick={() => handleDelete(graphic._id)}
+                      >
+                        Delete
+                      </MDBBtn>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </MDBTableBody>
+        </MDBTable>
+      </MDBContainer>
     </MDBContainer>
   );
 }
