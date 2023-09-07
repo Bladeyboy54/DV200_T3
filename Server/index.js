@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const { log } = require("console");
-const audioRoute = require("./routes/graphics");
+const graphicsRoute = require("./routes/graphics");
+const userRoute = require("./routes/users");
 
 require("dotenv/config");
 
@@ -18,7 +19,8 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(audioRoute);
+app.use(graphicsRoute);
+app.use(userRoute);
 
 mongoose
   .connect(process.env.DB_CONNECTION, {

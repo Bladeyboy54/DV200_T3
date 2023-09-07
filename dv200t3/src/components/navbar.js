@@ -4,10 +4,10 @@ import {
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarItem,
-  MDBNavbarLink,
   MDBBtn
 } from "mdb-react-ui-kit";
 import Logo from "./logomain.svg";
+import { Link } from 'react-router-dom';
 
 function BasicNav() {
 
@@ -19,7 +19,7 @@ function BasicNav() {
   return (
     <MDBNavbar expand="lg" className="bg-body-tertiary">
       <div className="container">
-        <MDBNavbarBrand href="#home">
+        <MDBNavbarBrand href="/">
           <img
             alt=""
             src={Logo}
@@ -30,19 +30,19 @@ function BasicNav() {
         </MDBNavbarBrand>
         <MDBNavbarNav style={navbarStyle}  navbarScroll>
           <MDBNavbarItem>
-            <MDBNavbarLink to="#products">Products</MDBNavbarLink>
+            <Link to="/products" className="nav-link">Products</Link>
           </MDBNavbarItem>
         </MDBNavbarNav>
-        <MDBNavbarNav className="ms-auto" style={{paddingRight: "0"}}>
-          <MDBNavbarItem >
-            <MDBNavbarLink to="#">
+        <MDBNavbarNav className="ms-auto" style={{ position: "relative", right: "0" }}>
+          <MDBNavbarItem style={{ position: "absolute",right: "100px"}}>
+            <Link to="#">
               <span className="text-dark">Hello, User</span>
-            </MDBNavbarLink>
+            </Link>
           </MDBNavbarItem>
-          <MDBNavbarItem>
-            <MDBNavbarLink to="/cart">
+          <MDBNavbarItem style={{ position: "absolute",right: "0"}}>
+            <Link to="/cart">
               <MDBBtn variant="outline-light">Cart</MDBBtn>
-            </MDBNavbarLink>
+            </Link>
           </MDBNavbarItem>
         </MDBNavbarNav>
       </div>
