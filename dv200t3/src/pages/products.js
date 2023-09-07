@@ -28,12 +28,12 @@ function Products() {
 
   return (
     <MDBContainer>
-      <br/>
+      <br />
       <h1 className="text-light">Products</h1>
-      <br/>
+      <br />
       <MDBRow>
         {productsData.map((product, index) => (
-          <MDBCol key={index} sm="3" style={{ marginBottom: cardMargin}}>
+          <MDBCol key={index} sm="3" style={{ marginBottom: cardMargin }}>
             <MDBCard style={{ height: cardHeight }}>
               <MDBCardImage
                 src={product.imageUrl}
@@ -56,6 +56,5 @@ function Products() {
       </MDBRow>
     </MDBContainer>
   );
-
 }
 export default Products;
