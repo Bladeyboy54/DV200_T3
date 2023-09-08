@@ -5,7 +5,7 @@ import Products from "./pages/products";
 import Login from "./pages/login";
 import Cart from "./pages/cart";
 import Checkout from "./pages/checkout";
-import BasicNav from "./components/navbar";
+import Nav from "./components/navbar";
 import SingleProduct from "./pages/singleProduct";
 import { Route, Routes } from "react-router-dom";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
@@ -14,7 +14,7 @@ import "mdb-react-ui-kit/dist/css/mdb.min.css";
 function App() {
   return (
     <div className="App">
-      <BasicNav />
+      <Nav />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/admin" element={<Admin />} />

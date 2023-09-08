@@ -52,7 +52,22 @@ const SingleProduct = () => {
     setQuantity(e.target.value);
   };
 
+  const calculateTotalPrice = () => {
+    return (product.price * quantity).toFixed(2);
+  };
+
   const addToCart = () => {
+    const cartItem = {
+      _id: product._id,
+      quantity,
+    };
+
+    const existingCart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+    existingCart.push(cartItem);
+
+    sessionStorage.setItem("cart", JSON.stringify(existingCart));
+
     console.log(`Added ${quantity} ${product.name} to cart.`);
   };
 
@@ -87,9 +102,16 @@ const SingleProduct = () => {
             />
           </MDBCol>
           <MDBCol md="6">
-            <h2>{product.name}</h2>
+            <h1>{product.name}</h1>
+            <br/>
+            <h2>{product.type}</h2>
+            <br/>
             <p>{product.description}</p>
+            <br/>
             <p>Price: R{product.price.toFixed(2)}</p>
+            <br/>
+            <p>Total Price: R{calculateTotalPrice()}</p>
+            <br/>
             <MDBInput
               type="number"
               label="Quantity"
@@ -97,6 +119,7 @@ const SingleProduct = () => {
               value={quantity}
               onChange={handleQuantityChange}
             />
+            <br/>
             <MDBBtn color="primary" onClick={addToCart}>
               Add to Cart
             </MDBBtn>
@@ -104,11 +127,18 @@ const SingleProduct = () => {
         </MDBRow>
       </MDBContainer>
       <br />
-      <MDBContainer className="mt-5">
+      <MDBContainer 
+        className="mt-5"
+        style={{
+          backgroundColor: "#F5F5F5",
+          padding: "20px",
+          borderRadius: "10px",
+        }}  
+      >
         <MDBRow>
           {randomProducts.map((randomProduct, index) => (
             <MDBCol key={index} sm="3" style={{ marginBottom: "20px" }}>
-              <MDBCard style={{height: "550px" }}>
+              <MDBCard style={{height: "520px" }}>
                 <MDBCardImage
                   src={randomProduct.imageUrl}
                   alt={randomProduct.name}

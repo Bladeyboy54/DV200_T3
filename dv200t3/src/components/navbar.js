@@ -9,7 +9,7 @@ import {
 import Logo from "./logomain.svg";
 import { Link } from 'react-router-dom';
 
-function BasicNav() {
+function Nav() {
 
   const navbarStyle = {
     display: "flex",
@@ -28,19 +28,19 @@ function BasicNav() {
           />{" "}
           Tiger Technologies
         </MDBNavbarBrand>
-        <MDBNavbarNav style={navbarStyle}  navbarScroll>
+        <MDBNavbarNav style={navbarStyle}>
           <MDBNavbarItem>
             <Link to="/products" className="nav-link">Products</Link>
           </MDBNavbarItem>
         </MDBNavbarNav>
         <MDBNavbarNav className="ms-auto" style={{ position: "relative", right: "0" }}>
-          <MDBNavbarItem style={{ position: "absolute",right: "100px"}}>
+          <MDBNavbarItem style={{ position: "absolute", right: "100px"}}>
             <Link to="#">
               <span className="text-dark">Hello, User</span>
             </Link>
           </MDBNavbarItem>
-          <MDBNavbarItem style={{ position: "absolute",right: "0"}}>
-            <Link to="/cart">
+          <MDBNavbarItem style={{ position: "absolute",right: "0", top: "-15px"}}>
+            <Link to="/cart" className="nav-link">
               <MDBBtn variant="outline-light">Cart</MDBBtn>
             </Link>
           </MDBNavbarItem>
@@ -50,4 +50,4 @@ function BasicNav() {
   );
 }
 
-export default BasicNav;
+export default Nav;

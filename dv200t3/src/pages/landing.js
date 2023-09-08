@@ -11,10 +11,12 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import '../css/landing.css';
 
 function Landing() {
   const [graphicsData, setGraphicsData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -87,7 +89,7 @@ function Landing() {
         </MDBCarouselItem>
       </MDBCarousel>
       <br />
-      {/* ///////////////////////////////////////////////////////////////////////// */}
+      
       <div
         style={{
           backgroundColor: "#F5F5F5",
@@ -98,7 +100,7 @@ function Landing() {
         }}
       >
         <div
-          class="row"
+          className="row"
           style={{
             width: "80%",
             marginLeft: "auto",
@@ -124,7 +126,12 @@ function Landing() {
                   <MDBCardText style={{ marginBottom: "20px" }}>
                     R{graphic.price.toFixed(2)}
                   </MDBCardText>
-                  <MDBBtn color="primary">Buy Now</MDBBtn>
+                  <MDBBtn
+                    color="primary"
+                    onClick={() => navigate(`/product/${graphic._id}`)}
+                  >
+                    Buy Now
+                  </MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -143,7 +150,7 @@ function Landing() {
         }}
       >
         <div
-          class="row"
+          className="row"
           style={{
             width: "80%",
             marginLeft: "auto",
@@ -172,7 +179,12 @@ function Landing() {
                   <MDBCardText style={{ marginBottom: "20px" }}>
                     R{graphic.price.toFixed(2)}
                   </MDBCardText>
-                  <MDBBtn color="primary">Buy Now</MDBBtn>
+                  <MDBBtn
+                    color="primary"
+                    onClick={() => navigate(`/product/${graphic._id}`)}
+                  >
+                    Buy Now
+                  </MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
