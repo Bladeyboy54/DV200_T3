@@ -134,6 +134,32 @@ Run the following in the terminal to start the React app
 
 ## Features and Functionality 
 
+   - Users can browse a selection of graphics cards on the website.
+
+   - Users can examine comprehensive product details for each graphics card.
+
+   - Users can place orders for the graphics cards they choose.
+
+   - Users can easily explore a variety of graphics cards.
+   - Users can click on specific items to read in-depth product details.
+
+   - Users can select the number of items they want to purchase.
+
+   - The system calculates and displays the overall cost based on the quantity selected.
+
+   - Users can add items to their shopping carts.
+
+   - The shopping cart provides an overview of the user's choices.
+   
+   - It displays information on the names, prices, quantities, and total costs of each item.
+
+   - Users can add and remove products from their cart as needed.
+
+   - The application has a "Checkout" option for users to proceed with their purchases.
+
+   - When users visit product pages, the website suggests random graphics cards to encourage further exploration.
+
+   - The project is designed for experts and computer hardware enthusiasts looking for high-quality graphics cards.
 
 
 
