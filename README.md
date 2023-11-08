@@ -18,7 +18,7 @@
     <a href="https://github.com/Bladeyboy54/Lehnberg-Bladen-DV200_T1/tree/main/api"><strong>Explore the Files »</strong></a>
     <br />
     <br />
-    <a href="https://youtu.be/tYHNM0-9S04">View Demo</a>
+    <a href="https://youtu.be/NHf_yd-IDxM">View Demo</a>
     ·
     <a href="bug report link">Report Bug</a>
     ·
@@ -43,10 +43,8 @@
 * [Final Outcome](#final-outcome)
     * [Mockups](#mockups)
     * [Video Demonstration](#video-demonstration)
-* [Conclusion](#conclusion)
 * [License](#license)
 * [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
 
 
 ## About The Project
@@ -161,67 +159,64 @@ Run the following in the terminal to start the React app
 
    - The project is designed for experts and computer hardware enthusiasts looking for high-quality graphics cards.
 
+## Development Process
+
+### Implementation Process
+
+* Creating a no SQL database using MongoDB
+* connecting the database to the React Frontend.
+* Allow users to add products to their carts and checkout.
+* 
+
+### Challenges
+
+* Getting the database to display data on the front end.
+* Having the data input from the admin page correctly displayed on the database.
+* Getting the back end to not crash when data is written to it.
+
+## Final Outcome
 
 
 
-## Technologies
+### Mockups
+<a href="https://github.com/Bladeyboy54/DV200_T3">
+    <img src="Img\Mockup1.png" alt="Logo" width="auto" height="400">
+  </a>
+<br />
+<a href="https://github.com/Bladeyboy54/DV200_T3">
+    <img src="Img\Mockup2.png" alt="Logo" width="auto" height="400">
+  </a>
+<br />
+<a href="https://github.com/Bladeyboy54/DV200_T3">
+    <img src="Img\Mockup3.png" alt="Logo" width="auto" height="400">
+  </a>
+<br />
+<a href="https://github.com/Bladeyboy54/DV200_T3">
+    <img src="Img\Mockup4.png" alt="Logo" width="auto" height="400">
+  </a>
 
-### React application
 
-"axios": "^1.4.0",
-"bootstrap": "^5.3.1",
-"mdb-react-ui-kit": "^6.1.0",
-"mdb-ui-kit": "^6.4.1",
-"react": "^18.2.0",
-"react-bootstrap": "^2.8.0",
-"react-dom": "^18.2.0",
-"react-router-dom": "^6.14.2",
-"react-scripts": "5.0.1",
-"web-vitals": "^2.1.4"
+### Video Demonstration
 
-### server
+To see a run through of the application, click below:
 
-"cors": "^2.8.5",
-"dotenv": "^16.3.1",
-"express": "^4.18.2",
-"jsonwebtoken": "^9.0.2",
-"mongodb": "^6.0.0",
-"mongoose": "^7.5.0",
-"multer": "^1.4.5-lts.1",
-"nodemon": "^3.0.1",
-"path": "^0.12.7"
+[View Demonstration](https://youtu.be/NHf_yd-IDxM)
 
-## Description
 
-The project is a website for e-commerce that focuses on computer graphics card sales. Users can browse a selection of graphics cards on this website, examine comprehensive product details, and place orders. It was developed using React for the front end, Axios for API interactions, and the MDB React UI Kit for styling.
+## Authors
 
-Users may easily explore a selection of graphics cards, click on specific items to read in-depth product details, and choose the number of items they want to purchase. In line with the quantity selected, the system also determines and displays the overall cost.
+* **Bladen Lehnberg** - [Bladen Lehnberg](https://github.com/Bladeyboy54)
 
-Users can add items to their shopping carts, which provide an overview of their choices with information on the names, prices, quantities, and related total costs of each item. Users can also take products out of their cart as necessary.
+## License
 
-Although the application has a "Checkout" option, its full implementation would rely on the requirements of a particular project. Additionally, the website has a function that, when users visit product pages, suggests random graphics cards to them, encouraging more exploration.
+Distributed under the MIT License. See `LICENSE` for more information.\
 
-This project serves as the basis for an online store designed for experts and computer hardware enthusiasts looking for excellent graphics cards.
+## Contact
 
-## Getting Started
+* **Bladen Lehnberg** - [221146@virtualwindow.co.za](mailto:221146@virtualwindow.co.za)
+* **Project Link** - [Tiger Technologies](https://github.com/Bladeyboy54/DV200_T3)
 
-Ensure that Node.js is installed on your computer
 
-### Prerequisites
 
-Ensure that you  have these installed on your computer or using the web application 
-- mongoDB 
-- Insomnia
-- node.js
-- React
-- Express.js
 
-### Installation
 
-- React app
-
-`npm i axios bootstrap mdb-react-ui-kit react-bootstrap react-router-dom`
-
-- Server
-
-`npm i cors dotenv express mongodb mongoose multer nodemon path`
